@@ -1,6 +1,6 @@
 {% set name = 'jupyter_contrib_core' %}
 {% set version = '0.3.0' %}
-{% set md5 = 'cc53caaee0f2b0427189ed80bd86da8b' %}
+{% set sha256 = '8ce15f075450541d9f69868ba1ab26619bcb3e8cf344b1186915c4f4aa4a6153' %}
 
 package:
   name: {{ name }}
@@ -9,10 +9,10 @@ package:
 source:
     fn: {{ name }}-{{ version }}.tar.gz
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    md5: {{ md5 }}
+    sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
