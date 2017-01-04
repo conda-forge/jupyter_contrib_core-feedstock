@@ -11,6 +11,18 @@ Summary: Common utilities for jupyter-contrib projects.
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/jupyter_contrib_core-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/jupyter_contrib_core-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/jupyter_contrib_core-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/jupyter_contrib_core-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/jupyter_contrib_core-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/jupyter-contrib-core-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/jupyter_contrib_core/badges/version.svg)](https://anaconda.org/conda-forge/jupyter_contrib_core)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/jupyter_contrib_core/badges/downloads.svg)](https://anaconda.org/conda-forge/jupyter_contrib_core)
+
 Installing jupyter_contrib_core
 ===============================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `jupyter_contrib_core` available o
 ```
 conda search jupyter_contrib_core --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/jupyter_contrib_core-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/jupyter_contrib_core-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/jupyter_contrib_core-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/jupyter_contrib_core-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/jupyter_contrib_core-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/jupyter-contrib-core-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/jupyter_contrib_core/badges/version.svg)](https://anaconda.org/conda-forge/jupyter_contrib_core)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/jupyter_contrib_core/badges/downloads.svg)](https://anaconda.org/conda-forge/jupyter_contrib_core)
 
 
 Updating jupyter_contrib_core-feedstock
