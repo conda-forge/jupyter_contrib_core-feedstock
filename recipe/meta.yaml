@@ -1,6 +1,6 @@
 {% set name = 'jupyter_contrib_core' %}
-{% set version = '0.3.0' %}
-{% set sha256 = '8ce15f075450541d9f69868ba1ab26619bcb3e8cf344b1186915c4f4aa4a6153' %}
+{% set version = '0.3.1' %}
+{% set sha256 = 'b487971bde0eb98959bafaa6a199dad8573369a8f848749b00f07ebdcf58aef7' %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
     sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
