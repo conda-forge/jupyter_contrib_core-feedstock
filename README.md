@@ -3,7 +3,7 @@ About jupyter_contrib_core
 
 Home: https://github.com/jupyter-contrib/jupyter_contrib_core
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter_contrib_core-feedstock/blob/main/LICENSE.txt)
 
@@ -144,4 +144,5 @@ Feedstock Maintainers
 =====================
 
 * [@jcb91](https://github.com/jcb91/)
+* [@ocefpaf](https://github.com/ocefpaf/)
 
