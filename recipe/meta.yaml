@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyter_contrib_core-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jupyter_contrib_core-{{ version }}.tar.gz
   sha256: ad995f5754188ab41ea5f94d69c9a1f96ba50543274d798d9001f937f730d326
 
 build:
   noarch: python
   entry_points:
     - jupyter-contrib = jupyter_contrib_core.application:main
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - jupyter_core
     - notebook >=4.0
@@ -48,6 +48,7 @@ test:
     - jupyter-contrib --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Common utilities for jupyter-contrib projects.
