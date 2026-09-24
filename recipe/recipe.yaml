@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.4.0"
+  version: "0.4.2"
 
 package:
   name: jupyter_contrib_core
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/j/jupyter_contrib_core/jupyter_contrib_core-${{ version }}.tar.gz
-  sha256: ad995f5754188ab41ea5f94d69c9a1f96ba50543274d798d9001f937f730d326
+  sha256: 1887212f3ca9d4487d624c0705c20dfdf03d5a0b9ea2557d3aaeeb4c38bdcabb
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -28,7 +28,7 @@ requirements:
     - python >=${{ python_min }}
     - setuptools
     - jupyter_core
-    - notebook >=4.0
+    - notebook >=4.0,<7
     - tornado
     - traitlets
 
@@ -44,6 +44,9 @@ tests:
         - jupyter_contrib_core.notebook_compat._compat.nbextensions
         - jupyter_contrib_core.notebook_compat._compat.serverextensions
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - script:
       - jupyter-contrib --help
 
