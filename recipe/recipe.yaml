@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  version: "0.4.0"
+
+package:
+  name: jupyter_contrib_core
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/j/jupyter_contrib_core/jupyter_contrib_core-${{ version }}.tar.gz
+  sha256: ad995f5754188ab41ea5f94d69c9a1f96ba50543274d798d9001f937f730d326
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - jupyter-contrib = jupyter_contrib_core.application:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - setuptools
+    - jupyter_core
+    - notebook >=4.0
+    - tornado
+    - traitlets
+
+tests:
+  - python:
+      imports:
+        - jupyter_contrib_core
+        - jupyter_contrib_core.application
+        - jupyter_contrib_core.notebook_compat
+        - jupyter_contrib_core.notebook_compat.nbextensions
+        - jupyter_contrib_core.notebook_compat.serverextensions
+        - jupyter_contrib_core.notebook_compat._compat
+        - jupyter_contrib_core.notebook_compat._compat.nbextensions
+        - jupyter_contrib_core.notebook_compat._compat.serverextensions
+      pip_check: true
+  - script:
+      - jupyter-contrib --help
+
+about:
+  summary: Common utilities for jupyter-contrib projects.
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  homepage: https://github.com/jupyter-contrib/jupyter_contrib_core
+
+extra:
+  recipe-maintainers:
+    - jcb91
+    - ocefpaf
