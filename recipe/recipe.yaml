@@ -47,8 +47,15 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
-  - script:
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - tests/
+    script:
       - jupyter-contrib --help
+      - pytest -vv
 
 about:
   summary: Common utilities for jupyter-contrib projects.
