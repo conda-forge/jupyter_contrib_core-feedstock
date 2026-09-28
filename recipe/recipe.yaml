@@ -1,0 +1,70 @@
+schema_version: 1
+
+context:
+  version: "0.4.2"
+
+package:
+  name: jupyter_contrib_core
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/j/jupyter_contrib_core/jupyter_contrib_core-${{ version }}.tar.gz
+  sha256: 1887212f3ca9d4487d624c0705c20dfdf03d5a0b9ea2557d3aaeeb4c38bdcabb
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - jupyter-contrib = jupyter_contrib_core.application:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - setuptools <82
+    - jupyter_core
+    - notebook >=4.0,<7
+    - tornado
+    - traitlets
+
+tests:
+  - python:
+      imports:
+        - jupyter_contrib_core
+        - jupyter_contrib_core.application
+        - jupyter_contrib_core.notebook_compat
+        - jupyter_contrib_core.notebook_compat.nbextensions
+        - jupyter_contrib_core.notebook_compat.serverextensions
+        - jupyter_contrib_core.notebook_compat._compat
+        - jupyter_contrib_core.notebook_compat._compat.nbextensions
+        - jupyter_contrib_core.notebook_compat._compat.serverextensions
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - tests/
+    script:
+      - jupyter-contrib --help
+      - pytest -vv
+
+about:
+  summary: Common utilities for jupyter-contrib projects.
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  homepage: https://github.com/jupyter-contrib/jupyter_contrib_core
+
+extra:
+  recipe-maintainers:
+    - jcb91
+    - ocefpaf
+    - mgorny
